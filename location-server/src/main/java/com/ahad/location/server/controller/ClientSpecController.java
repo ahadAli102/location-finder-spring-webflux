@@ -29,4 +29,9 @@ public class ClientSpecController {
     public Mono<GenericResponse<Boolean>> insertClientSpec(@RequestBody ClientSpec clientSpec) {
         return service.insertClientSpec(clientSpec);
     }
+
+    @PutMapping
+    public Mono<GenericResponse<Boolean>> updateClientSpec(@RequestBody ClientSpec clientSpec) {
+        return service.updateClientSpec(clientSpec);
+    }
 }

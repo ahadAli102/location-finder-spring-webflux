@@ -27,6 +27,16 @@ public class ClientSpecRepository {
                 .bind("name", clientSpec.name())
                 .bind("pc", clientSpec.pc())
                 .bind("gt", clientSpec.gt())
-                .fetch().rowsUpdated();
+                .fetch()
+                .rowsUpdated();
+    }
+
+    public Mono<Long> updateClientSpec(ClientSpec clientSpec) {
+        return databaseClient.sql("UPDATE client_spec SET  pc = :pc, gt = :gt WHERE name = :name")
+                .bind("name", clientSpec.name())
+                .bind("pc", clientSpec.pc())
+                .bind("gt", clientSpec.gt())
+                .fetch()
+                .rowsUpdated();
     }
 }
