@@ -4,9 +4,7 @@ import com.ahad.location.server.entity.ClientSpec;
 import com.ahad.location.server.response.GenericResponse;
 import com.ahad.location.server.service.ClientSpecService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
@@ -25,5 +23,10 @@ public class ClientSpecController {
     @GetMapping
     public Mono<GenericResponse<List<ClientSpec>>> getAllClientSpecs() {
         return service.getAllClientSpecs();
+    }
+
+    @PostMapping
+    public Mono<GenericResponse<Boolean>> insertClientSpec(@RequestBody ClientSpec clientSpec) {
+        return service.insertClientSpec(clientSpec);
     }
 }

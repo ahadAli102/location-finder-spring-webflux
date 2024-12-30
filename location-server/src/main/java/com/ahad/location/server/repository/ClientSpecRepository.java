@@ -4,7 +4,7 @@ import com.ahad.location.server.entity.ClientSpec;
 import org.springframework.r2dbc.core.DatabaseClient;
 import org.springframework.stereotype.Repository;
 import reactor.core.publisher.Flux;
-
+import reactor.core.publisher.Mono;
 
 
 @Repository
@@ -20,5 +20,13 @@ public class ClientSpecRepository {
         return databaseClient.sql("SELECT * FROM client_spec")
                 .map((row, metadata) -> new ClientSpec(row.get("name", String.class), row.get("pc", String.class), row.get("gt", String.class)))
                 .all();
+    }
+
+    public Mono<Long> insertClientSpec(ClientSpec clientSpec) {
+        return databaseClient.sql("INSERT INTO client_spec (name, pc, gt) VALUES (:name, :pc, :gt)")
+                .bind("name", clientSpec.name())
+                .bind("pc", clientSpec.pc())
+                .bind("gt", clientSpec.gt())
+                .fetch().rowsUpdated();
     }
 }

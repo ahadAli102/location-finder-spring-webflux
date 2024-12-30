@@ -20,6 +20,12 @@ public class ClientSpecService {
         return repository.getAllClientSpecs()
                 .collectList()
                 .map(clientSpec -> new GenericResponse<>("D200", "Success", clientSpec))
-                .onErrorResume(e -> Mono.just(new GenericResponse<>("D400", e.getMessage(), null)));
+                .onErrorResume(e -> Mono.just(new GenericResponse<>("D400", e.getMessage(), List.of())));
+    }
+
+    public Mono<GenericResponse<Boolean>> insertClientSpec(ClientSpec clientSpec) {
+        return repository.insertClientSpec(clientSpec)
+                .map(rowsUpdated -> new GenericResponse<>("D200", "Success", rowsUpdated > 0))
+                .onErrorResume(e -> Mono.just(new GenericResponse<>("D400", e.getMessage(), false)));
     }
 }
