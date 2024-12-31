@@ -34,4 +34,10 @@ public class ClientSpecService {
                 .map(rowsUpdated -> new GenericResponse<>("D200", "Success", rowsUpdated > 0))
                 .onErrorResume(e -> Mono.just(new GenericResponse<>("D400", e.getMessage(), false)));
     }
+
+    public Mono<GenericResponse<Boolean>> deleteClientSpec(ClientSpec clientSpec) {
+        return repository.deleteClientSpec(clientSpec)
+                .map(rowsUpdated -> new GenericResponse<>("D200", "Success", rowsUpdated > 0))
+                .onErrorResume(e -> Mono.just(new GenericResponse<>("D400", e.getMessage(), false)));
+    }
 }

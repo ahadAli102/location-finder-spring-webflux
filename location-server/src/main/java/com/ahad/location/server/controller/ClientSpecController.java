@@ -3,7 +3,6 @@ package com.ahad.location.server.controller;
 import com.ahad.location.server.entity.ClientSpec;
 import com.ahad.location.server.response.GenericResponse;
 import com.ahad.location.server.service.ClientSpecService;
-import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -33,5 +32,10 @@ public class ClientSpecController {
     @PutMapping
     public Mono<GenericResponse<Boolean>> updateClientSpec(@RequestBody ClientSpec clientSpec) {
         return service.updateClientSpec(clientSpec);
+    }
+
+    @DeleteMapping
+    public Mono<GenericResponse<Boolean>> deleteClientSpec(@RequestBody ClientSpec clientSpec) {
+        return service.deleteClientSpec(clientSpec);
     }
 }

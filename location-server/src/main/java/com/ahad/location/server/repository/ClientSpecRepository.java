@@ -39,4 +39,13 @@ public class ClientSpecRepository {
                 .fetch()
                 .rowsUpdated();
     }
+
+    public Mono<Long> deleteClientSpec(ClientSpec clientSpec) {
+        return databaseClient.sql("DELETE FROM client_spec WHERE name = :name AND pc = :pc AND gt = :gt")
+                .bind("name", clientSpec.name())
+                .bind("pc", clientSpec.pc())
+                .bind("gt", clientSpec.gt())
+                .fetch()
+                .rowsUpdated();
+    }
 }
