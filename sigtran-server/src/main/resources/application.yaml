@@ -9,3 +9,6 @@ response:
   imsi:
     delays: 0, 1000, 2000, 0, 4000, 5000
     file: /home/iftekhar/projects-my/location-finder/sigtran-server/src/main/resources/imsi-response.json
+  location:
+    delays: 100, 20, 2000, 0, 500, 4000
+    file: /home/iftekhar/projects-my/location-finder/sigtran-server/src/main/resources/location-response.json

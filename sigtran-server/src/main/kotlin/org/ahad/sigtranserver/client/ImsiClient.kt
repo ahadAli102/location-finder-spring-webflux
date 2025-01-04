@@ -1,4 +1,4 @@
-package org.ahad.sigtranserver
+package org.ahad.sigtranserver.client
 
 import org.ahad.sigtranserver.model.ImsiResponse
 import org.ahad.sigtranserver.request.ImsiRequest

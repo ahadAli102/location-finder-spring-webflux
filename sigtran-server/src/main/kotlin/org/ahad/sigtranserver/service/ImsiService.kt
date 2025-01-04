@@ -1,6 +1,6 @@
 package org.ahad.sigtranserver.service
 
-import org.ahad.sigtranserver.ImsiClient
+import org.ahad.sigtranserver.client.ImsiClient
 import org.ahad.sigtranserver.request.ImsiRequest
 import org.ahad.sigtranserver.response.GenericResponse
 import org.springframework.stereotype.Service
