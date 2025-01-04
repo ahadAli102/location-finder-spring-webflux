@@ -1,0 +1,32 @@
+[
+  {
+    "imsi": "525036155555505",
+    "responseCode": "1000",
+    "responseMessage": "Success"
+  },
+  {
+    "imsi": "425036155555505",
+    "responseCode": "1000",
+    "responseMessage": "Success"
+  },
+  {
+    "imsi": "325036155555505",
+    "responseCode": "1000",
+    "responseMessage": "Success"
+  },
+  {
+    "imsi": "225036155555505",
+    "responseCode": "1000",
+    "responseMessage": "Success"
+  },
+  {
+    "imsi": "225036155555515",
+    "responseCode": "1000",
+    "responseMessage": "Success"
+  },
+  {
+    "imsi": "225036155555599",
+    "responseCode": "1000",
+    "responseMessage": "Success"
+  }
+]
