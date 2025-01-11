@@ -43,7 +43,7 @@ class BeanConfiguration {
     @Bean
     fun locationDelays(): List<Long> {
         return try {
-            imsiDelays.split(",")
+            locationDelays.split(",")
                 .map { it.trim() }
                 .map { it.toLong() }
                 .toList()

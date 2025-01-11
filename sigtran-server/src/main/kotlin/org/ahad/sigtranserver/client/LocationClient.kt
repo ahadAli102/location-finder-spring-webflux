@@ -15,7 +15,7 @@ class LocationClient(val locationDelays: List<Long>, val locationResponses: List
     }
 
     fun getDelayedLocation(): LocationResponse {
-        val delay = locationDelays[counter.getAndIncrement() % locationDelays.size]
+        val delay = locationDelays[counter.get() % locationDelays.size]
         Thread.sleep(delay)
         return locationResponses[counter.getAndIncrement() % locationResponses.size]
     }

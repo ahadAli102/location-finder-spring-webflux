@@ -15,7 +15,7 @@ class ImsiClient(val imsiDelays: List<Long>, val imsiResponses: List<ImsiRespons
     }
 
     fun getDelayedImsi(): ImsiResponse {
-        val delay = imsiDelays[counter.getAndIncrement() % imsiDelays.size]
+        val delay = imsiDelays[counter.get() % imsiDelays.size]
         Thread.sleep(delay)
         return imsiResponses[counter.getAndIncrement() % imsiResponses.size]
     }
