@@ -22,6 +22,13 @@ public class ClientSpecRepository {
                 .all();
     }
 
+    public Mono<ClientSpec> getClientSpec(String name) {
+        return databaseClient.sql("SELECT * FROM client_spec WHERE name = :name")
+                .bind("name", name)
+                .map((row, metadata) -> new ClientSpec(row.get("name", String.class), row.get("pc", String.class), row.get("gt", String.class)))
+                .one();
+    }
+
     public Mono<Long> insertClientSpec(ClientSpec clientSpec) {
         return databaseClient.sql("INSERT INTO client_spec (name, pc, gt) VALUES (:name, :pc, :gt)")
                 .bind("name", clientSpec.name())
